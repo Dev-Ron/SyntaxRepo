@@ -8,10 +8,10 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY NuGet.config ./
-COPY ["WebApplication2/WebApplication2.csproj", "WebApplication2/"]
-COPY ["WebApplication2/Core/Core.csproj", "WebApplication2/Core/"]
-COPY ["WebApplication2/Infracstruture/Infracstruture.csproj", "WebApplication2/Infracstruture/"]
-RUN dotnet restore "WebApplication2/WebApplication2.csproj"
+COPY ["WebApplication2.csproj", "WebApplication2/"]
+COPY ["Core/Core.csproj", "WebApplication2/Core/"]
+COPY ["Infracstruture/Infracstruture.csproj", "WebApplication2/Infracstruture/"]
+RUN dotnet restore "WebApplication2.csproj"
 COPY . .
 WORKDIR "/src/WebApplication2"
 RUN dotnet build "WebApplication2.csproj" -c Release -o /app/build
