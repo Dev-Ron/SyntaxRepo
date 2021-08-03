@@ -9,8 +9,8 @@ FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY NuGet.config ./
 COPY ["WebApplication2.csproj", "WebApplication2/"]
-COPY ["Core.csproj", "WebApplication2/Core/"]
-COPY ["Infracstruture.csproj", "WebApplication2/Infracstruture/"]
+COPY ["Core/Core.csproj", "WebApplication2/"]
+COPY ["Infracstruture/Infracstruture.csproj", "WebApplication2/"]
 RUN dotnet restore "WebApplication2.csproj"
 COPY . .
 WORKDIR "/src/WebApplication2"
