@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY NuGet.config ./
+COPY ["nuget.config", "."]
 COPY ["WebApplication2.csproj", "."]
 COPY ["../Core/Core.csproj", "../Core/"]
 COPY ["../Infracstruture/Infracstruture.csproj", "../Infracstruture/"]
